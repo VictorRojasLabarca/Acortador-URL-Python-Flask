@@ -18,7 +18,7 @@
   <body class="bg-dark text-white">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Url shortener</a>
+        <a class="navbar-brand" href="/">Url shortener</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -33,13 +33,18 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About this</a>
+              <a class="nav-link" href="about_this">About this</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About creator</a>
+              <a
+                class="nav-link"
+                href="https://minisitiesvictoralejandro.com/"
+                target="_blank"
+                >About creator</a
+              >
             </li>
           </ul>
         </div>
@@ -48,16 +53,16 @@
     <main class="container mt-5">
       <div class="bg-dark text-white p-4 border border-light-subtle rounded-4">
         <form id="urlForm" action="/create_shorturl" method="post" class="mt-4">
-          <h3>Sigue estos sencillos pasos</h3>
+          <h3>Follow these simple steps</h3>
           <ol>
-            <li>Busca tu URL larga</li>
-            <li>Introduce tu URL larga en el campo de texto.</li>
-            <li>Haz clic en el botón "Acortar URL".</li>
-            <li>Copia tu URL acortada y compártela.</li>
+            <li>Find your long URL.</li>
+            <li>Paste your long URL into the text field.</li>
+            <li>Click the "Shorten URL" button.</li>
+            <li>Copy your shortened URL and share it.</li>
           </ol>
           <div class="mb-3">
             <label for="longUrl" class="form-label"
-              >Pega tu URL larga aquí:</label
+              >Paste your long URL here:</label
             >
             <input
               type="url"
@@ -67,14 +72,14 @@
               placeholder="https://www.ejemplo.com/url-muy-larga"
             />
           </div>
-          <button type="submit" class="btn btn-primary">Acortar URL</button>
+          <button type="submit" class="btn btn-primary">Shorten URL</button>
         </form>
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
         messages %} {% for category, message in messages %} {% if category ==
         'success' %}
         <div id="shortUrlContainer" class="mt-4">
           <p>
-            Tu URL acortada es:
+            Your shortened URL is:
             <a href="{{ message }}" target="_blank">{{ message }}</a>
           </p>
         </div>

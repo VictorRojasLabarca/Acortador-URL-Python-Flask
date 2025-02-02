@@ -3,10 +3,12 @@ import pyshorteners
 from flask import redirect, render_template, request, flash, url_for
 from flask_app import app
 
+# Home | Main page
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# Create short URL with form
 @app.route('/create_shorturl', methods=['POST'])
 def create_shorturl():
     # print(request.form)
@@ -24,5 +26,10 @@ def create_shorturl():
             print(e)
             flash('An error ocurred, please try again', 'error')
     else:
-        flash('Please enter a URL', 'error')
+        flash('Please enter a URL.', 'error')
     return redirect(url_for('index'))
+
+# About this proyect
+@app.route('/about_this')
+def view_about_this():
+    return render_template('about_this.html')
